@@ -23,7 +23,7 @@ public class MyClock extends JLabel implements Runnable {
             calendar = Calendar.getInstance();
             sec = calendar.get(Calendar.SECOND);
             min = calendar.get(Calendar.MINUTE);
-            hour = calendar.get(Calendar.HOUR_OF_DAY);
+            hour = calendar.get(Calendar.HOUR);
             setText();
             try {
                 Thread.sleep(1000);

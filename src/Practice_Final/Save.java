@@ -1,6 +1,5 @@
 package Practice_Final;
 
-import labOOP_10.GetSaveNotepad;
 
 import java.io.*;
 import java.util.ArrayList;

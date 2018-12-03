@@ -19,8 +19,6 @@ public class AccountGUI implements ActionListener, ItemListener {
     JComboBox<String> comboBox = new JComboBox<>(),comboBox2 = new JComboBox<>();
     JTextField textField1 = new JTextField(),textField2 = new JTextField();
     int i = 1;
-
-
     public void init(){
         frame = new JFrame();
         frame.setSize(800,600);
@@ -39,14 +37,11 @@ public class AccountGUI implements ActionListener, ItemListener {
         label2.setHorizontalAlignment(SwingConstants.CENTER);
         label3.setHorizontalAlignment(SwingConstants.CENTER);
         label4.setHorizontalAlignment(SwingConstants.CENTER);
-
         panel1 = new JPanel(new GridLayout(4,2));
         panel2 = new JPanel(new FlowLayout());
-
         button = new JButton("New");
         button2 = new JButton("Deposite");
         button3 = new JButton("WithDraw");
-
         button.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
@@ -59,12 +54,10 @@ public class AccountGUI implements ActionListener, ItemListener {
         panel1.add(label4);
         panel1.add(comboBox2);
         menuItem1.addActionListener(this);
-
         menu1.add(menuItem1);
         menu1.add(menuItem2);
         menuBar.add(menu1);
         menuBar.add(menu2);
-
         comboBox.addItem("Choose Account");
         comboBox2.addItem("Choose Account");
         try {
@@ -80,12 +73,7 @@ public class AccountGUI implements ActionListener, ItemListener {
                 i++;
             }
         }
-
         comboBox.addItemListener(this);
-
-
-
-
         panel2.add(button);
         panel2.add(button2);
         panel2.add(button3);
@@ -95,14 +83,11 @@ public class AccountGUI implements ActionListener, ItemListener {
         frame.setVisible(true);
         frame.pack();
         textField1.setEditable(false);
-
     }
-
     public static void main(String[] args) {
         AccountGUI accountGUI = new AccountGUI();
         accountGUI.init();
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
      if(e.getActionCommand().equals("New") && !textField2.getText().equals("") ){
@@ -112,7 +97,6 @@ public class AccountGUI implements ActionListener, ItemListener {
          ListAccount.getAccount(i-1).deposite(Double.parseDouble(textField2.getText()));
          textField2.setText("");
          i++;
-
      }else if(e.getActionCommand().equals("Deposite")){
          if(comboBox2.getSelectedItem().equals("Choose Account")){
              ListAccount.getAccount(comboBox.getSelectedIndex()-1).deposite(Double.parseDouble(textField2.getText()));
@@ -129,7 +113,6 @@ public class AccountGUI implements ActionListener, ItemListener {
          }
 
      }else if(e.getActionCommand().equals("WithDraw")){
-
      }
      else if(e.getActionCommand().equals("Exit")){
          System.exit(0);
@@ -137,7 +120,6 @@ public class AccountGUI implements ActionListener, ItemListener {
          Save.write(ListAccount.allAccount());
      }
     }
-
     @Override
     public void itemStateChanged(ItemEvent e) {
         for (int j = 1;j<=i;j++){
@@ -145,8 +127,5 @@ public class AccountGUI implements ActionListener, ItemListener {
                 textField1.setText(ListAccount.getAccount(j - 1).getBalance() + "");
             }
         }
-    }
-    public  void setCommobox(){
-
     }
 }
