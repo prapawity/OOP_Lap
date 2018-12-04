@@ -54,6 +54,7 @@ public class GUIBANK extends JLabel implements ActionListener, ItemListener {
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
+                JOptionPane.showMessageDialog(null,"Load Complete");
             }
 
         }
